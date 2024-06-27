@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #111;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    width: 1600px;
+    height: 400px;
+}
+
+.container::before{
+    position: absolute;
+    content: '';
+    width: 200%;
+    height: 0px;
+    background: linear-gradient(90deg, #4c60dd 30%, #ff356c);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s 0s ease-in;
+}
+
+.container:hover::before{
+    height: 200px;
+    transition: 0.5s 0.6s ease-in;
+}
+
+.card{
+    position: absolute;
+    height: 400px;
+    width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    font-size: 10em;
+    font-weight: 900;
+    line-height: 400px;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.3) ;
+    top: 50%;
+    left: 50%;
+    margin: 0 5px;
+    transform-origin: 0 0;
+    transform: rotate(calc(var(--i)*5deg)) translate(-50%, -50%);
+    transition: 0.5s calc(var(--i)*0.3s) ease;
+}
+
+.card:nth-child(even){
+    transform: rotate(calc(var(--i)*-5deg)) translate(-50%, -50%);
+}
+
+.container:hover .card{
+    transform-origin: center;
+    transform: rotate(calc(var(--i)*0deg)) translate(-412%, -50%) translateX(calc(var(--i)*120%));
+    transition-delay: calc(var(--i)*0s);
+    line-height: 300px;
+    font-size: 10.3em;
+    scale: 1.05;
+    backdrop-filter: blur(12px);
+    -webkit-text-stroke: 6px rgba(0, 0, 0, 0.5);
+    color: transparent;
+    -webkit-box-reflect: below 5px linear-gradient(to bottom, transparent 80%, rgba(0, 0, 0, 0.5));
+}
+
+.container:hover .card:not(:hover){
+    background: rgba(252, 254, 254, 0.3);
+    line-height: 400px;
+    font-size: 8em;
+    scale: 1;
+    border: 2px solid #b3b3b3;
+    -webkit-text-stroke: 3px rgba(252, 254, 254, 0.8);
+    box-shadow: 0 0 15px rgb(0, 0, 0,0.3);
+}
